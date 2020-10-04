@@ -16,4 +16,3 @@ using namespace std;
 /// <param name="res">¬рем€ с прибавленными 5 минутами.</param>
 /// <returns> од результата: 0 - успех, 1 - неверный формат исходного времени, 2 - неверный час, 3 - неверна€ минута.</returns>
 extern "C" TIMELIB_API int GetTimePlus5MinStr(string time, string &res);
-//extern TIMELIB_API string GetEnding(int remnant, bool whatToDo);
