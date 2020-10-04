@@ -23,55 +23,6 @@ map<int, string> Minutes = {
 	{55, "пятьдесят пять"}, {56, "пятьдесят шесть"}, {57, "пятьдесят семь"}, {58, "пятьдесят восемь"}, {59, "пятьдесят девять"}
 };
 
-/// <summary>
-/// Прибавляет к указанному времени 5 минут.
-/// </summary>
-/// <param name="time">Исходное время.</param>
-/// <param name="res">Время с прибавленными 5 минутами.</param>
-/// <returns>Код результата: 0 - успех, 1 - неверный формат исходного времени, 2 - неверный час, 3 - неверная минута.</returns>
-int GetTimePlus5MinStr(string time, string& res)
-{
-	if (time.length() != 5 || time[2] != ':')
-		return 1;
-
-	string hours = "";
-	hours += time[0];
-	hours += time[1];
-	int hour = stoi(hours);
-	if (hour > 23 || hour < 0)
-		return 2;
-
-	string minutes = "";
-	minutes += time[3];
-	minutes += time[4];
-	int minute = stoi(minutes);
-	if (minute > 59 || minute < 0)
-		return 3;
-
-	minute += 5;
-	if (minute > 59)
-	{
-		hour += 1;
-		minute -= 60;
-
-		if (hour > 23)
-		{
-			hour = 0;
-		}
-	}
-
-	string hourEnding = "";
-	int hourRemnant = hour % 10;
-	hourEnding = GetEnding(hourRemnant, true);
-
-	string minuteEnding = "";
-	int minuteRemnant = minute % 10;
-	minuteEnding = GetEnding(minuteRemnant, false);
-
-	res = Hours[hour] + " " + hourEnding + " " + Minutes[minute] + " " + minuteEnding;
-	return 0;
-}
-
 string GetEnding(int remnant, bool whatToDo)
 {
 	string ending = "";
@@ -100,3 +51,73 @@ string GetEnding(int remnant, bool whatToDo)
 
 	return ending;
 }
+
+/// <summary>
+/// Прибавляет к указанному времени 5 минут.
+/// </summary>
+/// <param name="time">Исходное время в формате ЧЧ:ММ.</param>
+/// <param name="res">Время с прибавленными 5 минутами.</param>
+/// <returns>Код результата: 0 - успех, 1 - неверный формат исходного времени, 2 - неверный час, 3 - неверная минута.</returns>
+int GetTimePlus5MinStr(string time, string& res)
+{
+	if (time.length() != 5 || time[2] != ':')
+		return 1;
+
+	int hour, minute;
+
+	string hours = "";
+	hours += time[0];
+	hours += time[1];
+
+	try
+	{
+		hour = stoi(hours);
+	}
+	catch(exception)
+	{
+		return 1;
+	}
+
+	if (hour > 23 || hour < 0)
+		return 2;
+
+	string minutes = "";
+	minutes += time[3];
+	minutes += time[4];
+
+	try
+	{
+		minute = stoi(minutes);
+	}
+	catch (exception)
+	{
+		return 1;
+	}
+	
+	if (minute > 59 || minute < 0)
+		return 3;
+
+	minute += 5;
+	if (minute > 59)
+	{
+		hour += 1;
+		minute -= 60;
+
+		if (hour > 23)
+		{
+			hour = 0;
+		}
+	}
+
+	string hourEnding = "";
+	int hourRemnant = hour % 10;
+	hourEnding = GetEnding(hourRemnant, true);
+
+	string minuteEnding = "";
+	int minuteRemnant = minute % 10;
+	minuteEnding = GetEnding(minuteRemnant, false);
+
+	res = Hours[hour] + " " + hourEnding + " " + Minutes[minute] + " " + minuteEnding;
+	return 0;
+}
+
