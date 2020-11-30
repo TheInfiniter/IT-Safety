@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaussLib", "GaussLib\GaussLib.csproj", "{823CF105-45BE-4CDB-AE22-01D1F7954784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{AD323208-4725-4852-BD8E-D596AFABAD7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{823CF105-45BE-4CDB-AE22-01D1F7954784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823CF105-45BE-4CDB-AE22-01D1F7954784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823CF105-45BE-4CDB-AE22-01D1F7954784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823CF105-45BE-4CDB-AE22-01D1F7954784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDCBE069-3D1B-43A0-BCD2-E17E5A991EC9}
+	EndGlobalSection
+EndGlobal
