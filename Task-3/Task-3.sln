@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaussLib", "GaussLib\GaussLib.csproj", "{823CF105-45BE-4CDB-AE22-01D1F7954784}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{AD323208-4725-4852-BD8E-D596AFABAD7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit", "Testing\Unit.csproj", "{AD323208-4725-4852-BD8E-D596AFABAD7E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{823CF105-45BE-4CDB-AE22-01D1F7954784} = {823CF105-45BE-4CDB-AE22-01D1F7954784}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp", "Tmp\Tmp.csproj", "{8001C765-FC7E-4515-B16F-BD353560B74D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD323208-4725-4852-BD8E-D596AFABAD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8001C765-FC7E-4515-B16F-BD353560B74D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8001C765-FC7E-4515-B16F-BD353560B74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8001C765-FC7E-4515-B16F-BD353560B74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8001C765-FC7E-4515-B16F-BD353560B74D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

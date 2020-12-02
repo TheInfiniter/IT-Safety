@@ -1,32 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GaussLib
 {
     public static class Gauss
     {
-        public static double[] GetGaussDome(int size, int amount, int amp, double disp, int center)
+        public static double[] GetGaussDome(int size, double amp, double disp, double center, double shift)
         {
-            //RandomInit();
             double[] array = new double[size];
 
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = 0;
-                for (int j = 0; j < amount; j++)
-                {
-                    array[i] += GaussDome(amp, disp, center, i);
-                }
+                array[i] += GaussDome(amp, disp, center, i, shift);
             }
+
             return array;
         }
 
-        private static double GaussDome(double amp, double disp, double center, int i, double shift = 0)
+        /// <summary>
+        /// Вычислить значение гауссова купола в указанной координате.
+        /// </summary>
+        /// <param name="amp">Амплитуда купола.</param>
+        /// <param name="disp">Дисперсия купола.</param>
+        /// <param name="center">Центр купола.</param>
+        /// <param name="i">Координата x.</param>
+        /// <param name="shift">Смещение купола.</param>
+        /// <returns>Значение купола в данной точке х.</returns>
+        public static double GaussDome(double amp, double disp, double center, double i, double shift = 0)
         {
-            return amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (disp * disp));
+            double result;
+
+            if (disp <= 0)
+            {
+                throw new DivideByZeroException("Divide by zero");
+            }
+            else
+            {
+                result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (disp * disp));
+                return result;
+            }
+            /*
+            try
+            {
+                result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (disp * disp));
+                return result;
+            }
+            catch(DivideByZeroException)
+            {
+                throw new DivideByZeroException("Divide by zero");
+            }
+            */
         }
     }
 }
