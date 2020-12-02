@@ -4,6 +4,15 @@ namespace GaussLib
 {
     public static class Gauss
     {
+        /// <summary>
+        /// Получить массив значений купола.
+        /// </summary>
+        /// <param name="size">Размер массива.</param>
+        /// <param name="amp">Амплитуда.</param>
+        /// <param name="disp">Дисперсия.</param>
+        /// <param name="center">Центр купола.</param>
+        /// <param name="shift">Смещение купола.</param>
+        /// <returns>Массив значений.</returns>
         public static double[] GetGaussDome(int size, double amp, double disp, double center, double shift)
         {
             double[] array = new double[size];
