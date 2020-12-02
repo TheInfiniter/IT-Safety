@@ -38,6 +38,24 @@ namespace Testing
             }
 
             Assert.AreEqual(center + shift, index);
+            Assert.AreEqual(amp, max);
+        }
+
+        [Test]
+        public void AmpTest() // тест на правильный пик графика
+        {
+            array = Gauss.GetGaussDome(size, amp, disp, center, shift);
+            double max = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            Assert.AreEqual(amp, max);
         }
 
         [Test]
@@ -47,10 +65,12 @@ namespace Testing
             Assert.That(ex.Message, Is.EqualTo("Divide by zero"));
         }
 
+        /*
         [Test]
         public void CorrectDispersion() // тест на корректность дисперсии (полуширина)
         {
-            Assert.Fail();
+            Assert.Pass();
         }
+        */
     }
 }
