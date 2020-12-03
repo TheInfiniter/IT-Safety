@@ -19,8 +19,7 @@ namespace GaussLib
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = 0;
-                array[i] += GaussDome(amp, disp, center, i, shift);
+                array[i] = GaussDome(amp, disp, center, (double)i, shift);
             }
 
             return array;
@@ -45,7 +44,7 @@ namespace GaussLib
             }
             else
             {
-                result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (disp * disp));
+                result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (2 * (disp * disp)));
                 return result;
             }
             /*

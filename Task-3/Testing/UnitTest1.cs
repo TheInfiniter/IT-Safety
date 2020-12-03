@@ -7,7 +7,7 @@ namespace Testing
 {
     public class GaussTests
     {
-        double[] array;
+        //double[] array;
         int amp = 2;
         double disp = 1;
         int center = 32;
@@ -28,7 +28,7 @@ namespace Testing
         public void ShiftTest() // тест на правильное смещение графика
         {
             shift = 2;
-            array = Gauss.GetGaussDome(size, amp, disp, center, shift);
+            double[] array = Gauss.GetGaussDome(size, amp, disp, center, shift);
             double max = 0;
             int index = 0;
 
@@ -48,7 +48,7 @@ namespace Testing
         [Test]
         public void AmpTest() // тест на правильный пик графика
         {
-            array = Gauss.GetGaussDome(size, amp, disp, center, shift);
+            double[] array = Gauss.GetGaussDome(size, amp, disp, center, shift);
             double max = 0;
 
             for (int i = 0; i < array.Length; i++)
@@ -72,8 +72,12 @@ namespace Testing
         [Test]
         public void CorrectNumbers() // тест на корректность вычислений при заданных параметрах
         {
-            double[] expected = {  };
-            Assert.Pass();
+            double[] expected = { 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000,
+                0.000007, 0.000671, 0.022218, 0.270671, 1.213061, 2.000000, 1.213061, 0.270671, 0.022218, 0.000671, 0.000007, 0.000000, 0.000000,
+                0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000 };
+
+            double[] array = Gauss.GetGaussDome(32, 2, 1, 16, 0);
+            Assert.That(array, Is.EqualTo(expected).Within(0.0001));
         }
     }
 }

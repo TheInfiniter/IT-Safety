@@ -12,7 +12,7 @@ namespace Tmp
             int center = 32;
             int shift = 0;
 
-            double[] array = Gauss.GetGaussDome(64, amp, disp, center, shift);
+            double[] array = Gauss.GetGaussDome(32, 2, 1, 16, 0);
             double D = 1 / (amp * Math.Sqrt(2 * Math.PI));
             double M;
 
