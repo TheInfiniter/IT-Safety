@@ -17,7 +17,11 @@ namespace Testing
         [SetUp]
         public void Setup()
         {
-
+            amp = 2;
+            disp = 1;
+            center = 32;
+            shift = 0;
+            size = 64;
         }
 
         [Test]
@@ -65,12 +69,11 @@ namespace Testing
             Assert.That(ex.Message, Is.EqualTo("Divide by zero"));
         }
 
-        /*
         [Test]
-        public void CorrectDispersion() // тест на корректность дисперсии (полуширина)
+        public void CorrectNumbers() // тест на корректность вычислений при заданных параметрах
         {
+            double[] expected = {  };
             Assert.Pass();
         }
-        */
     }
 }

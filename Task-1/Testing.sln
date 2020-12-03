@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Square Dll", "Square\Square.vcxproj", "{199DB9A7-2144-4745-93ED-CAC9CBFC7400}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleTest", "ConsoleTest\ConsoleTest.vcxproj", "{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{199DB9A7-2144-4745-93ED-CAC9CBFC7400} = {199DB9A7-2144-4745-93ED-CAC9CBFC7400}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test Dll", "Test Dll\Test Dll.vcxproj", "{AE534E3C-06BA-431F-A870-9DB33F91D19C}"
 EndProject
 Global
@@ -26,12 +21,6 @@ Global
 		{199DB9A7-2144-4745-93ED-CAC9CBFC7400}.Release|Win32.ActiveCfg = Release|Win32
 		{199DB9A7-2144-4745-93ED-CAC9CBFC7400}.Release|Win32.Build.0 = Release|Win32
 		{199DB9A7-2144-4745-93ED-CAC9CBFC7400}.Release|x64.ActiveCfg = Release|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Debug|Win32.Build.0 = Debug|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Debug|x64.ActiveCfg = Debug|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Release|Win32.ActiveCfg = Release|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Release|Win32.Build.0 = Release|Win32
-		{3AA9C2BF-C008-44C4-8A8B-D5669170BD6F}.Release|x64.ActiveCfg = Release|Win32
 		{AE534E3C-06BA-431F-A870-9DB33F91D19C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{AE534E3C-06BA-431F-A870-9DB33F91D19C}.Debug|Win32.Build.0 = Debug|Win32
 		{AE534E3C-06BA-431F-A870-9DB33F91D19C}.Debug|x64.ActiveCfg = Debug|x64
