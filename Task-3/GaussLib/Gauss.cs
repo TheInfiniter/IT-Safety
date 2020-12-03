@@ -40,7 +40,7 @@ namespace GaussLib
 
             if (disp <= 0)
             {
-                throw new DivideByZeroException("Divide by zero");
+                throw new DivideByZeroException("Dispertion is less or equal zero");
             }
             else if ((center - shift) < 0)
             {

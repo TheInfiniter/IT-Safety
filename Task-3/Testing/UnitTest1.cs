@@ -42,7 +42,6 @@ namespace Testing
             }
 
             Assert.AreEqual(center + shift, index);
-            Assert.AreEqual(amp, max);
         }
 
         [Test]
@@ -77,7 +76,7 @@ namespace Testing
         public void ZeroDispersion() // тест на нулевую либо отрицательную дисперсию
         {
             var ex = Assert.Throws<DivideByZeroException>(() => Gauss.GaussDome(amp, 0, center, 0));
-            Assert.That(ex.Message, Is.EqualTo("Divide by zero"));
+            Assert.That(ex.Message, Is.EqualTo("Dispertion is less or equal zero"));
         }
 
         [Test]
