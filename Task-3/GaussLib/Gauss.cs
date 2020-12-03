@@ -42,6 +42,10 @@ namespace GaussLib
             {
                 throw new DivideByZeroException("Divide by zero");
             }
+            else if ((center - shift) < 0)
+            {
+                throw new ArgumentException("Center is less than zero");
+            }
             else
             {
                 result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (2 * (disp * disp)));

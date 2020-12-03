@@ -63,13 +63,6 @@ namespace Testing
         }
 
         [Test]
-        public void ZeroDispersion() // тест на нулевую либо отрицательную дисперсию
-        {
-            var ex = Assert.Throws<DivideByZeroException>(() => Gauss.GaussDome(amp, 0, center, 0));
-            Assert.That(ex.Message, Is.EqualTo("Divide by zero"));
-        }
-
-        [Test]
         public void CorrectNumbers() // тест на корректность вычислений при заданных параметрах
         {
             double[] expected = { 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000,
@@ -78,6 +71,27 @@ namespace Testing
 
             double[] array = Gauss.GetGaussDome(32, 2, 1, 16, 0);
             Assert.That(array, Is.EqualTo(expected).Within(0.0001));
+        }
+
+        [Test]
+        public void ZeroDispersion() // тест на нулевую либо отрицательную дисперсию
+        {
+            var ex = Assert.Throws<DivideByZeroException>(() => Gauss.GaussDome(amp, 0, center, 0));
+            Assert.That(ex.Message, Is.EqualTo("Divide by zero"));
+        }
+
+        [Test]
+        public void NegativeCenter() // тест на отрицательный центр
+        {
+            var ex = Assert.Throws<ArgumentException>(() => Gauss.GaussDome(amp, 1, -2, 0));
+            Assert.That(ex.Message, Is.EqualTo("Center is less than zero"));
+        }
+
+        [Test]
+        public void LessThanZeroShift() // тест на смещение центра ниже нуля
+        {
+            var ex = Assert.Throws<ArgumentException>(() => Gauss.GaussDome(amp, 1, 4, 0, 6));
+            Assert.That(ex.Message, Is.EqualTo("Center is less than zero"));
         }
     }
 }
