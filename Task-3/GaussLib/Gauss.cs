@@ -25,6 +25,28 @@ namespace GaussLib
             return array;
         }
 
+        public static double[] GetRandomGaussDome(int size, int amount, double shift, Random rand)
+        {
+            double[] array = new double[size];
+
+            double amp, disp, center;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = 0;
+
+                amp = GetRandom(-0.5, 0.5, rand);
+                disp = GetRandom(5, 7, rand);
+                center = GetRandom(0, size, rand);
+
+                for (int j = 0; j < amount; j++)
+                {
+                    array[i] += GaussDome(amp, disp, center, i, shift);
+                }
+            }
+            return array;
+        }
+
         /// <summary>
         /// Вычислить значение гауссова купола в указанной координате.
         /// </summary>
@@ -62,6 +84,11 @@ namespace GaussLib
                 throw new DivideByZeroException("Divide by zero");
             }
             */
+        }
+
+        private static double GetRandom(double minimum, double maximum, Random rand)
+        {
+            return rand.NextDouble() * (maximum - minimum) + minimum;
         }
     }
 }
