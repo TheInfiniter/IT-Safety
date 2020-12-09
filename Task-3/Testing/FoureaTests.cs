@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using GaussLib;
-using System.Linq;
 using System;
 
-namespace Testing
+namespace UnitTest
 {
     public class GaussTests
     {
