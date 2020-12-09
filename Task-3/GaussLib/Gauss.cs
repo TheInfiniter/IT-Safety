@@ -25,23 +25,25 @@ namespace GaussLib
             return array;
         }
 
-        public static double[] GetRandomGaussDome(int size, int amount, double shift, Random rand)
+        public static double[] GetRandomGaussDome(int size, int amount, double shift, double[] amp, double[] disp, double[] center)
         {
             double[] array = new double[size];
 
-            double amp, disp, center;
+            //double amp, disp, center;
 
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = 0;
 
+                /*
                 amp = GetRandom(-0.5, 0.5, rand);
                 disp = GetRandom(5, 7, rand);
                 center = GetRandom(0, size, rand);
+                */
 
                 for (int j = 0; j < amount; j++)
                 {
-                    array[i] += GaussDome(amp, disp, center, i, shift);
+                    array[i] += RandomGaussDome(amp[j], disp[j], center[j], i, shift);
                 }
             }
             return array;
@@ -73,22 +75,11 @@ namespace GaussLib
                 result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (2 * (disp * disp)));
                 return result;
             }
-            /*
-            try
-            {
-                result = amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (disp * disp));
-                return result;
-            }
-            catch(DivideByZeroException)
-            {
-                throw new DivideByZeroException("Divide by zero");
-            }
-            */
         }
 
-        private static double GetRandom(double minimum, double maximum, Random rand)
+        public static double RandomGaussDome(double amp, double disp, double center, double i, double shift = 0)
         {
-            return rand.NextDouble() * (maximum - minimum) + minimum;
+            return amp * Math.Exp(-(i - (center + shift)) * (i - (center + shift)) / (2 * (disp * disp)));
         }
     }
 }
